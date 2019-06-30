@@ -1,10 +1,8 @@
 from django.conf.urls import include, url
 from django.contrib import admin
+from twitter.views import index_view
 
 urlpatterns = [
-    # Examples:
-    # url(r'^$', 'Django.views.home', name='home'),
-    # url(r'^blog/', include('blog.urls')),
-
-    url(r'^admin/', include(admin.site.urls)),
+    url(r'^admin/', admin.site.urls),
+    url(r'^$', index_view),
 ]
