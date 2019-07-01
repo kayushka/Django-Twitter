@@ -1,0 +1,13 @@
+{% extends "twitter/base.html" %}
+{% block content %}
+    <form action="" method="POST">
+        {%  csrf_token %}
+        <h3>Add a tweet!</h3>
+        <br>
+        {{ form.content.label }}
+        <br>
+        {{ form.content }}
+        <br>
+        <button type="submit" value="Post">Post</button>
+    </form>
+{%  endblock %}

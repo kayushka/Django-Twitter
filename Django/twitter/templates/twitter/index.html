@@ -1,4 +1,18 @@
 {% extends "twitter/base.html" %}
 {% block content %}
     <h1>index test</h1>
+    <table>
+        <tr>
+            <th>Content</th>
+            <th>Date of creation</th>
+        </tr>
+        {% for x in all_tweets %}
+            <tr>
+                <td>{{ x.content }}</td>
+                <td>{{ x.creation_date }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <a href={% url 'add_new_tweet' %}>New tweet</a>
 {% endblock %}
