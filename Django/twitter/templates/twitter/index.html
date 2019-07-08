@@ -5,11 +5,15 @@
         <tr>
             <th>Content</th>
             <th>Date of creation</th>
+            <th>User</th>
         </tr>
         {% for x in all_tweets %}
             <tr>
                 <td>{{ x.content }}</td>
                 <td>{{ x.creation_date }}</td>
+                {% if x.user_id  %}
+                    <td>{{ x.user_id.username }}</td>
+                {% endif %}
             </tr>
         {% endfor %}
     </table>

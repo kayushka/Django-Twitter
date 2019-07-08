@@ -29,3 +29,10 @@ def add_new_tweet_view(request):
 
 def home_view(request):
     return render(request, 'twitter/home.html')
+
+
+@login_required
+def user_view(request):
+    user = request.user
+    user_tweets = Tweet.objects.filter(user_id=user)
+    return render(request, 'twitter/user.html', {'user_tweets': user_tweets})
