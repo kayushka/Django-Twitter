@@ -13,5 +13,6 @@ class Message(models.Model):
     content = models.CharField(max_length=200)
     date = models.DateTimeField(default=datetime.now)
     read = models.BooleanField(default=False)
-    sender = models.ForeignKey(User, )
+    sender = models.ForeignKey(User, related_name="receiver", null=True, on_delete=models.SET_NULL)
+    receiver = models.ForeignKey(User, related_name="sender", null=True, blank=True, on_delete=models.SET_NULL)
 
