@@ -1,7 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from twitter.forms import AddTweetForm
-from twitter.models import Tweet
+from twitter.models import Tweet, Message
 
 
 @login_required
@@ -36,3 +36,9 @@ def user_view(request):
     user = request.user
     user_tweets = Tweet.objects.filter(user_id=user)
     return render(request, 'twitter/user.html', {'user_tweets': user_tweets})
+
+
+@login_required
+def message_view(request):
+    all_messages = Message.objects.filter(receiver=request.user)
+    return render(request, 'twitter/messages.html', {'messages': all_messages})

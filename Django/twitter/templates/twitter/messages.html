@@ -1,0 +1,9 @@
+{% extends "twitter/base.html" %}
+
+{% block content %}
+    <br>
+    {% for message in messages %}
+        {{ message.content }} from {{ message.sender }}
+        <br>
+    {% endfor %}
+{% endblock %}
